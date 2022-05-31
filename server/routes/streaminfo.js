@@ -17,8 +17,8 @@ router.get("/hanryang1125/:date", async (req, res) => {
       where: {
         createdAt: {
           [Op.between]: [
-            dayjs(`${req.params.date} 09:00:00`).toDate(),
-            dayjs(`${req.params.date} 08:59:00`).add(1, "day").toDate(),
+            dayjs(`${req.params.date}`).toDate(),
+            dayjs(`${req.params.date}`).add(1, "day").toDate(),
           ],
         },
       },
@@ -62,8 +62,8 @@ router.get("/zilioner/:date", async (req, res) => {
       where: {
         createdAt: {
           [Op.between]: [
-            dayjs(`${req.params.date} 09:00:00`).toDate(),
-            dayjs(`${req.params.date} 08:59:00`).add(1, "day").toDate(),
+            dayjs(`${req.params.date}`).toDate(),
+            dayjs(`${req.params.date}`).add(1, "day").toDate(),
           ],
         },
       },
@@ -109,8 +109,8 @@ router.get("/rooftopcat99/:date", async (req, res) => {
       where: {
         createdAt: {
           [Op.between]: [
-            dayjs(`${req.params.date} 09:00:00`).toDate(),
-            dayjs(`${req.params.date} 08:59:00`).add(1, "day").toDate(),
+            dayjs(`${req.params.date}`).toDate(),
+            dayjs(`${req.params.date}`).add(1, "day").toDate(),
           ],
         },
       },
@@ -154,8 +154,8 @@ router.get("/109ace/:date", async (req, res) => {
       where: {
         createdAt: {
           [Op.between]: [
-            dayjs(`${req.params.date} 09:00:00`).toDate(),
-            dayjs(`${req.params.date} 08:59:00`).add(1, "day").toDate(),
+            dayjs(`${req.params.date}`).toDate(),
+            dayjs(`${req.params.date}`).add(1, "day").toDate(),
           ],
         },
       },
