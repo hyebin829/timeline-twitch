@@ -1,14 +1,9 @@
 import { axios } from 'hooks/worker'
 
 interface Params {
-  id: string
-  date: string
+  streamerId: string | undefined
+  pickedDate: string | undefined
 }
 
-export const getStream = (params: Params) => {
-  axios.get('http://localhost:3065/api/streaminfo', {
-    params: {
-      ...params,
-    },
-  })
-}
+export const getStream = (streamerId: string | undefined, pickedDate: string | undefined) =>
+  axios.get(`http://localhost:3065/api/streaminfo/${streamerId}/${pickedDate}`)
