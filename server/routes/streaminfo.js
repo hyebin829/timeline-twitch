@@ -10,9 +10,6 @@ router.get("/hanryang1125/:date", async (req, res) => {
   dayjs.extend(customParseFormat);
 
   try {
-    console.log(dayjs(`${req.params.date} 09:00:00`).toDate());
-    console.log(dayjs(`${req.params.date} 08:59:00`).add(1, "day").toDate());
-
     const streaminfoData = await First.findAll({
       where: {
         createdAt: {
@@ -34,7 +31,6 @@ router.get("/hanryang1125/:date", async (req, res) => {
       raw: true,
     });
     let dataList = [];
-    console.log(streaminfoData);
     if (streaminfoData) {
       for (let i = 0; i < streaminfoData.length; i++) {
         if (
@@ -46,7 +42,6 @@ router.get("/hanryang1125/:date", async (req, res) => {
           dataList.push(streaminfoData[i]);
         }
       }
-      console.log(dataList);
     }
 
     res.status(200).json(dataList);
@@ -80,8 +75,6 @@ router.get("/zilioner/:date", async (req, res) => {
     });
 
     let dataList = [];
-    console.log(streaminfoData);
-
     if (streaminfoData) {
       for (let i = 0; i < streaminfoData.length; i++) {
         if (
@@ -93,9 +86,7 @@ router.get("/zilioner/:date", async (req, res) => {
           dataList.push(streaminfoData[i]);
         }
       }
-      console.log(dataList);
     }
-
     res.status(200).json(dataList);
   } catch (error) {
     console.error(error);
@@ -138,7 +129,6 @@ router.get("/rooftopcat99/:date", async (req, res) => {
           dataList.push(streaminfoData[i]);
         }
       }
-      console.log(dataList);
     }
 
     res.status(200).json(dataList);
@@ -183,9 +173,7 @@ router.get("/109ace/:date", async (req, res) => {
           dataList.push(streaminfoData[i]);
         }
       }
-      console.log(dataList);
     }
-
     res.status(200).json(dataList);
   } catch (error) {
     console.error(error);
