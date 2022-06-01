@@ -26,7 +26,6 @@
       "last 1 safari version"
     ]
   },
-
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -36,6 +35,7 @@
     "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
     "react": "^18.1.0",
+    "react-calendar": "^3.7.0",
     "react-dom": "^18.1.0",
     "react-error-boundary": "^3.1.4",
     "react-query": "^3.39.0",
@@ -52,6 +52,7 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
+    "@types/react-calendar": "^3.5.1",
     "@types/react-dom": "^18.0.0",
     "@types/store": "^2.0.2",
     "babel-eslint": "^10.1.0",
