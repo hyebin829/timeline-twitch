@@ -1,9 +1,7 @@
 const dotenv = require("dotenv");
 const axios = require("axios");
 dotenv.config();
-const { First } = require("../models");
-const { Second } = require("../models");
-const { Third } = require("../models");
+
 const { Fourth } = require("../models");
 
 const SaveData = async (streamerID) => {
@@ -13,7 +11,6 @@ const SaveData = async (streamerID) => {
   const getTokenUrl = `https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`;
   const getToken = await axios(getTokenUrl, { method: "POST" });
   const token = await getToken.data.access_token;
-  console.log(token);
 
   try {
     const getStreamInfo = await axios(
@@ -27,54 +24,19 @@ const SaveData = async (streamerID) => {
       }
     );
     const streamInfo = await getStreamInfo;
-    console.log(streamInfo.data.data[0]);
     await (streamInfoList = streamInfo.data.data[0]);
   } catch (error) {
     console.error(error);
   }
-
   try {
-    switch (streamerID) {
-      case "hanryang1125":
-        if (streamInfoList === undefined) {
-        } else {
-          await First.create({
-            category: streamInfoList.game_name,
-            title: streamInfoList.title,
-            startedAt: streamInfoList.started_at,
-          });
-        }
-        break;
-      case "zilioner":
-        if (streamInfoList === undefined) {
-        } else {
-          await Second.create({
-            category: streamInfoList.game_name,
-            title: streamInfoList.title,
-            startedAt: streamInfoList.started_at,
-          });
-        }
-        break;
-      case "rooftopcat99":
-        if (streamInfoList === undefined) {
-        } else {
-          await Third.create({
-            category: streamInfoList.game_name,
-            title: streamInfoList.title,
-            startedAt: streamInfoList.started_at,
-          });
-        }
-        break;
-      case "109ace":
-        if (streamInfoList === undefined) {
-        } else {
-          await Fourth.create({
-            category: streamInfoList.game_name,
-            title: streamInfoList.title,
-            startedAt: streamInfoList.started_at,
-          });
-        }
-        break;
+    if (streamInfoList === undefined) {
+    } else {
+      await Fourth.create({
+        streamerId: streamInfoList.user_login,
+        category: streamInfoList.game_name,
+        title: streamInfoList.title,
+        startedAt: streamInfoList.started_at,
+      });
     }
   } catch (error) {
     console.error(error);
