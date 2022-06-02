@@ -1,4 +1,5 @@
 const axios = require("axios");
+const dayjs = require("dayjs");
 const dotenv = require("dotenv");
 const { Fourth } = require("../models");
 
@@ -35,7 +36,7 @@ const SaveData = async (streamerID) => {
         streamerId: streamInfoList.user_login,
         category: streamInfoList.game_name,
         title: streamInfoList.title,
-        startedAt: streamInfoList.started_at,
+        startedAt: `${dayjs().format("YYYY-MM-DD")}`,
       });
     }
   } catch (error) {
