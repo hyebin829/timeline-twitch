@@ -1,153 +1,28 @@
 const express = require("express");
 const router = express.Router();
-const { First, Second, Third, Fourth } = require("../models");
+const { Fourth } = require("../models");
 const sequelize = require("sequelize");
 const { Op } = require("sequelize");
 const dayjs = require("dayjs");
 const customParseFormat = require("dayjs/plugin/customParseFormat");
 
-router.get("/hanryang1125/:date", async (req, res) => {
+router.get("/:id/:date", async (req, res) => {
   dayjs.extend(customParseFormat);
 
   try {
-    const streaminfoData = await First.findAll({
-      where: {
-        createdAt: {
-          [Op.between]: [
-            dayjs(`${req.params.date}`).toDate(),
-            dayjs(`${req.params.date}`).add(1, "day").toDate(),
-          ],
-        },
-      },
-      attributes: [
-        "category",
-        "title",
-        "updatedAt",
-        [
-          sequelize.fn("date_format", sequelize.col("createdAt"), `%H:%i`),
-          "createdAt",
-        ],
-      ],
-      raw: true,
-    });
-    let dataList = [];
-    if (streaminfoData) {
-      for (let i = 0; i < streaminfoData.length; i++) {
-        if (
-          (await streaminfoData[i].category) !==
-            (await streaminfoData[i + 1]?.category) ||
-          (await streaminfoData[i].title) !==
-            (await streaminfoData[i + 1]?.title)
-        ) {
-          dataList.push(streaminfoData[i]);
-        }
-      }
-    }
-
-    res.status(200).json(dataList);
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
-router.get("/zilioner/:date", async (req, res) => {
-  try {
-    const streaminfoData = await Second.findAll({
-      where: {
-        createdAt: {
-          [Op.between]: [
-            dayjs(`${req.params.date}`).toDate(),
-            dayjs(`${req.params.date}`).add(1, "day").toDate(),
-          ],
-        },
-      },
-      attributes: [
-        "category",
-        "title",
-        "updatedAt",
-        [
-          sequelize.fn("date_format", sequelize.col("createdAt"), `%H:%i`),
-          "createdAt",
-        ],
-      ],
-      raw: true,
-    });
-
-    let dataList = [];
-    if (streaminfoData) {
-      for (let i = 0; i < streaminfoData.length; i++) {
-        if (
-          (await streaminfoData[i].category) !==
-            (await streaminfoData[i + 1]?.category) ||
-          (await streaminfoData[i].title) !==
-            (await streaminfoData[i + 1]?.title)
-        ) {
-          dataList.push(streaminfoData[i]);
-        }
-      }
-    }
-    res.status(200).json(dataList);
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
-router.get("/rooftopcat99/:date", async (req, res) => {
-  try {
-    const streaminfoData = await Third.findAll({
-      where: {
-        createdAt: {
-          [Op.between]: [
-            dayjs(`${req.params.date}`).toDate(),
-            dayjs(`${req.params.date}`).add(1, "day").toDate(),
-          ],
-        },
-      },
-      attributes: [
-        "category",
-        "title",
-        "updatedAt",
-        [
-          sequelize.fn("date_format", sequelize.col("createdAt"), `%H:%i`),
-          "createdAt",
-        ],
-      ],
-      raw: true,
-    });
-
-    let dataList = [];
-    if (streaminfoData) {
-      for (let i = 0; i < streaminfoData.length; i++) {
-        if (
-          (await streaminfoData[i].category) !==
-            (await streaminfoData[i + 1]?.category) ||
-          (await streaminfoData[i].title) !==
-            (await streaminfoData[i + 1]?.title)
-        ) {
-          dataList.push(streaminfoData[i]);
-        }
-      }
-    }
-
-    res.status(200).json(dataList);
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
-router.get("/109ace/:date", async (req, res) => {
-  try {
     const streaminfoData = await Fourth.findAll({
       where: {
-        createdAt: {
-          [Op.between]: [
-            dayjs(`${req.params.date}`).toDate(),
-            dayjs(`${req.params.date}`).add(1, "day").toDate(),
-          ],
-        },
+        [Op.and]: [
+          {
+            createdAt: {
+              [Op.between]: [
+                dayjs(`${req.params.date}`).toDate(),
+                dayjs(`${req.params.date}`).add(1, "day").toDate(),
+              ],
+            },
+          },
+          { streamerId: req.params.id },
+        ],
       },
       attributes: [
         "category",
@@ -160,20 +35,22 @@ router.get("/109ace/:date", async (req, res) => {
       ],
       raw: true,
     });
-
     let dataList = [];
-    if (streaminfoData) {
-      for (let i = 0; i < streaminfoData.length; i++) {
-        if (
-          (await streaminfoData[i].category) !==
-            (await streaminfoData[i + 1]?.category) ||
-          (await streaminfoData[i].title) !==
-            (await streaminfoData[i + 1]?.title)
-        ) {
-          dataList.push(streaminfoData[i]);
-        }
+    streaminfoData.unshift({ category: "temp", title: "temp" });
+    console.log(streaminfoData);
+
+    for (let i = 1; i < streaminfoData.length; i++) {
+      if (
+        (await streaminfoData[i - 1].category) !==
+          (await streaminfoData[i]?.category) ||
+        (await streaminfoData[i - 1].title) !== (await streaminfoData[i]?.title)
+      ) {
+        dataList.push(streaminfoData[i]);
       }
     }
+
+    console.log(dataList);
+
     res.status(200).json(dataList);
   } catch (error) {
     console.error(error);
