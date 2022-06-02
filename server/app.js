@@ -1,9 +1,8 @@
 const express = require("express");
-const sequelize = require("sequelize");
 const dotenv = require("dotenv");
 const db = require("./models");
-const saveData = require("./utils/saveData");
 const streaminfoRouter = require("./routes/streaminfo");
+const onairdayRouter = require("./routes/onairdate");
 
 const app = express();
 dotenv.config();
@@ -24,6 +23,7 @@ app.use(
 );
 
 app.use("/api/streaminfo", streaminfoRouter);
+app.use("/api/onairday", onairdayRouter);
 app.get("/", async (req, res) => {
   res.send("hello");
 });
