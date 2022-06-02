@@ -1,8 +1,8 @@
-const dotenv = require("dotenv");
 const axios = require("axios");
-dotenv.config();
-
+const dotenv = require("dotenv");
 const { Fourth } = require("../models");
+
+dotenv.config();
 
 const SaveData = async (streamerID) => {
   const clientId = process.env.CLIENT_ID;
@@ -47,6 +47,6 @@ const SaveData = async (streamerID) => {
 setInterval(SaveData, 60000, "hanryang1125");
 setInterval(SaveData, 60000, "zilioner");
 setInterval(SaveData, 60000, "rooftopcat99");
-setInterval(SaveData, 60000, "109ace");
+setInterval(SaveData, 60000, "kss7749");
 
 module.exports = SaveData;
