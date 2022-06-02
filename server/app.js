@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const db = require("./models");
 const streaminfoRouter = require("./routes/streaminfo");
 const onairdayRouter = require("./routes/onairdate");
+const SaveData = require("./utils/saveData");
 
 const app = express();
 dotenv.config();
