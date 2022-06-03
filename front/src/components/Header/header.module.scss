@@ -1,0 +1,23 @@
+@use '/src/styles/constants/colors';
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  color: colors.$POINT;
+
+  h1 {
+    padding: 40px 0;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 50px;
+    color: colors.$POINT;
+    text-align: center;
+
+    .logo {
+      margin-bottom: 10px;
+    }
+  }
+}
