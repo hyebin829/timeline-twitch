@@ -1,0 +1,41 @@
+@use '/src/styles/constants/colors';
+
+.titleWrapper {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 10px;
+
+  .datePicker {
+    display: flex;
+    height: 40px;
+    padding: 8px 14px;
+    color: colors.$INPUT_BORDER;
+    background-color: colors.$WHITE;
+    border: 0.5px solid colors.$INPUT_BORDER;
+    border-radius: 10px;
+
+    span {
+      padding: 0 5px;
+      font-size: 15px;
+      color: colors.$POINT;
+    }
+
+    .icon {
+      line-height: 30px;
+    }
+  }
+
+  .streamerId {
+    width: 120px;
+    height: 40px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+}
