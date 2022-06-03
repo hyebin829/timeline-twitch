@@ -35,9 +35,9 @@ router.get("/:id/:date", async (req, res) => {
       ],
       raw: true,
     });
+
     let dataList = [];
     streaminfoData.unshift({ category: "temp", title: "temp" });
-    console.log(streaminfoData);
 
     for (let i = 1; i < streaminfoData.length; i++) {
       if (
@@ -48,8 +48,6 @@ router.get("/:id/:date", async (req, res) => {
         dataList.push(streaminfoData[i]);
       }
     }
-
-    console.log(dataList);
 
     res.status(200).json(dataList);
   } catch (error) {
