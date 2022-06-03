@@ -1,10 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit'
+import dayjs from 'dayjs'
+import { atom } from 'recoil'
+import { IStreamInfo } from 'types'
 
-export const store = configureStore({
-  reducer: {},
-  devTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
+export const TimelineState = atom<IStreamInfo[]>({
+  key: '#timelineState',
+  default: [],
 })
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export const SelectedDateState = atom<string | undefined>({
+  key: '#selectedDateState',
+  default: dayjs().format('YYYY-MM-DD'),
+})
+
+export const StreamerState = atom<string | undefined>({
+  key: '#streamerState',
+  default: '',
+})
