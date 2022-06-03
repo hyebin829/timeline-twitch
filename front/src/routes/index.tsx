@@ -1,21 +1,23 @@
 import { Routes, Route } from 'react-router-dom'
-import styles from './routes.module.scss'
 
-import GNB from 'routes/_shared/GNB'
 import Home from './Home'
 import StreamInfo from './StreamInfo'
+import FavoriteList from './FavoriteList'
+import styles from './routes.module.scss'
+import Layout from 'components/Layout'
 
 const App = () => {
   return (
     <div className={styles.appWrapper}>
-      <GNB />
-      <div className={styles.app}>
-        <Routes>
+      <Routes>
+        <Route path='/' element={<Layout />}>
           <Route path='/' element={<Home />} />
+          <Route path='streaminfo' element={<StreamInfo />} />
           <Route path='streaminfo/:id/:date' element={<StreamInfo />} />
+          <Route path='favorites' element={<FavoriteList />} />
           <Route path='*' element={<div>404</div>} />
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
     </div>
   )
 }
