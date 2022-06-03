@@ -1,0 +1,56 @@
+@use '/src/styles/constants/colors';
+
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .noData {
+    padding: 30px 20px 0;
+    font-size: 18px;
+  }
+
+  .timelineList {
+    width: 320px;
+    margin: 5px 15px;
+    border-bottom: 1px solid colors.$SELECT;
+
+    .streamInfo {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px 0;
+
+      .category {
+        padding: 5px 15px;
+        margin: 5px;
+        overflow: hidden;
+        font-size: 15px;
+        color: colors.$POINT;
+        text-overflow: ellipsis;
+        background-color: colors.$SUB_BACKGROUND;
+        border: 1px solid colors.$LAVANDER;
+        border-radius: 15px;
+      }
+
+      .title {
+        width: 100%;
+        padding: 8px 10px;
+        margin: 3px 0 0;
+        overflow: hidden;
+        font-size: 17px;
+        line-height: 18px;
+        color: colors.$POINT;
+        text-align: left;
+        text-overflow: ellipsis;
+      }
+
+      .start {
+        width: 100%;
+        padding: 5px 10px;
+        font-weight: 300;
+        color: colors.$SUB_TITLE;
+      }
+    }
+  }
+}
