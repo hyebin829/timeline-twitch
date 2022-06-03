@@ -1,12 +1,11 @@
 import SelectDate from './Calendar'
-import FavoriteButton from './FavoriteButton'
-import Timeline from './Timeline'
+import Timeline from './Timeline/Timeline'
+
+import styles from './streamInfo.module.scss'
 
 const StreamInfo = () => {
   return (
-    <div>
-      <h1> StreamInfo.</h1>
-      <FavoriteButton />
+    <div className={styles.streamInfoWrapper}>
       <SelectDate />
       <Timeline />
     </div>
