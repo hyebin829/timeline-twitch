@@ -1,16 +1,12 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-import { store } from './states'
-
-import './styles/index.scss'
-
 import Routes from './routes'
+import './styles/index.scss'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnMount: false } },
@@ -21,13 +17,11 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      <Provider store={store}>
-        <RecoilRoot>
-          <BrowserRouter>
-            <Routes />
-          </BrowserRouter>
-        </RecoilRoot>
-      </Provider>
+      <RecoilRoot>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </RecoilRoot>
     </QueryClientProvider>
   </React.StrictMode>
 )
