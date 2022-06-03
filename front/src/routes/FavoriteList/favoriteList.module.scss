@@ -1,0 +1,30 @@
+@use '/src/styles/constants/colors';
+
+.favoriteListWrapper {
+  width: 100vw;
+  padding: 0 40px;
+  color: colors.$POINT;
+
+  h2 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  .favoriteWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    font-size: 20px;
+
+    .favorite {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      a {
+        color: colors.$POINT;
+      }
+    }
+  }
+}
