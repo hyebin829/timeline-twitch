@@ -6,10 +6,10 @@ module.exports = {
     username: "root",
     password: process.env.DB_PASSWORD,
     database: "twitch",
-    host: "127.0.0.1",
+    host: "db",
     dialect: "mysql",
     timezone: "+09:00",
-    port: "3307",
+    port: "3306",
   },
   test: {
     username: "root",

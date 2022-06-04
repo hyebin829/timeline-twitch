@@ -5,7 +5,6 @@ const { Sequelize } = require("sequelize");
 const dayjs = require("dayjs");
 
 router.get("/:id", async (req, res) => {
-  console.log("adfadf");
   try {
     const dateArray = await Fourth.findAll({
       where: { streamerId: req.params.id },
