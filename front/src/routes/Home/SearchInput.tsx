@@ -11,16 +11,23 @@ const SearchInput = () => {
   const today = dayjs().format('YYYY-MM-DD')
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setStreamer(e.currentTarget.value)
+    setStreamer(e.currentTarget.value.trim())
+    setIsBlank(false)
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    navigate(`/streaminfo/${streamer}/${today}`)
+    if (!streamer.trim()) setIsBlank(true)
+    else {
+      navigate(`/streaminfo/${streamer}/${today}`)
+    }
   }
 
   const handleButtonSubmit = () => {
-    navigate(`/streaminfo/${streamer}/${today}`)
+    if (!streamer.trim()) setIsBlank(true)
+    else {
+      navigate(`/streaminfo/${streamer}/${today}`)
+    }
   }
 
   return (
@@ -46,6 +53,7 @@ const SearchInput = () => {
           </button>
         </div>
       </form>
+      {isBlank && <div className={styles.invalidValue}>아이디를 입력해주세요.</div>}
     </div>
   )
 }
