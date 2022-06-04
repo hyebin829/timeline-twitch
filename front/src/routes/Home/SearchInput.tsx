@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import dayjs from 'dayjs'
+
 import styles from './searchInput.module.scss'
 import { FiSearch } from 'react-icons/fi'
 
@@ -8,6 +9,7 @@ const SearchInput = () => {
   const navigate = useNavigate()
   const [streamer, setStreamer] = useState('')
   const [isBlank, setIsBlank] = useState(false)
+
   const today = dayjs().format('YYYY-MM-DD')
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +55,7 @@ const SearchInput = () => {
           </button>
         </div>
       </form>
-      {isBlank && <div className={styles.invalidValue}>아이디를 입력해주세요.</div>}
+      {isBlank && <div className={styles.invalidValue}>스트리머 아이디를 입력해주세요.</div>}
     </div>
   )
 }

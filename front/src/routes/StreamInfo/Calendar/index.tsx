@@ -13,26 +13,30 @@ import FavoriteButton from '../FavoriteButton'
 
 const SelectDate = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-  const calendarToggle = () => {
-    setIsCalendarVisible((prev) => !prev)
-  }
+  const [onAirArray, setOnAirArray] = useState([])
+
   const navigate = useNavigate()
   const params = useParams()
   const streamerId = params.id
   const selectedDate = params.date
-  const defaultDate = dayjs(selectedDate).isValid()
-    ? dayjs(selectedDate).format('YYYY,M,D')
-    : dayjs().format('YYYY,M,D')
-  const [onAirArray, setOnAirArray] = useState([])
 
   useMount(() => {
     getOnAirDay(streamerId).then((res) => setOnAirArray(res.data))
   })
 
-  const tilecontent = ({ date }: CalendarTileProperties) => {
+  const calendarToggle = () => {
+    setIsCalendarVisible((prev) => !prev)
+  }
+
+  const defaultDate = dayjs(selectedDate).isValid()
+    ? dayjs(selectedDate).format('YYYY,M,D')
+    : dayjs().format('YYYY,M,D')
+
+  const highlightOnAir = ({ date }: CalendarTileProperties) => {
     if (onAirArray?.find((x: string) => x === dayjs(date).format('YYYY-MM-DD'))) return <div className='highlights' />
     return <div />
   }
+
   return (
     <>
       <div className={styles.titleWrapper}>
@@ -60,7 +64,7 @@ const SelectDate = () => {
           showNeighboringMonth={false}
           next2Label={null}
           prev2Label={null}
-          tileContent={tilecontent}
+          tileContent={highlightOnAir}
           onChange={(value: Date) => {
             const selectDate = dayjs(value).format('YYYY-MM-DD')
             navigate(`/streaminfo/${streamerId}/${selectDate}`)
