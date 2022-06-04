@@ -22,6 +22,7 @@ const FavoriteList = () => {
   return (
     <div className={styles.favoriteListWrapper}>
       <h2>Favorite List</h2>
+      {!favoriteList.length && <div className={styles.nothing}>즐겨찾는 스트리머가 없습니다.</div>}
       <ul className={styles.favoriteWrapper}>
         {list.map((item: string) => (
           <div key={item} className={styles.favorite}>
