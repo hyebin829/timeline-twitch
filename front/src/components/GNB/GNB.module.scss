@@ -1,5 +1,5 @@
 @use '/src/styles/constants/colors';
-@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/responsive';
 
 .gnb {
   position: fixed;
@@ -9,10 +9,10 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 60px;
   padding: 30px 0;
   overflow: hidden;
-  border-top: 1px solid colors.$GRAYE;
+  font-weight: 400;
 
   ul {
     display: flex;
@@ -30,6 +30,31 @@
 
         p {
           display: none;
+        }
+      }
+    }
+  }
+  @include responsive.after(MD) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+    height: 135px;
+    margin-left: 200px;
+
+    ul {
+      li {
+        a {
+          span {
+            display: none;
+          }
+
+          p {
+            display: block;
+            font-size: 16px;
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .favoriteListWrapper {
   width: 100vw;
@@ -10,11 +11,17 @@
     font-weight: 400;
   }
 
+  .nothing {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
   .favoriteWrapper {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     font-size: 20px;
+    color: colors.$POINT;
 
     .favorite {
       display: flex;
@@ -25,6 +32,14 @@
       a {
         color: colors.$POINT;
       }
+
+      button {
+        color: colors.$POINT;
+      }
     }
+  }
+
+  @include responsive.after(MD) {
+    padding: 0 120px;
   }
 }

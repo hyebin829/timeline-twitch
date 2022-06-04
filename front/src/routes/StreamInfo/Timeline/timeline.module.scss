@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .timelineWrapper {
   display: flex;
@@ -28,8 +29,8 @@
         font-size: 15px;
         color: colors.$POINT;
         text-overflow: ellipsis;
-        background-color: colors.$SUB_BACKGROUND;
-        border: 1px solid colors.$LAVANDER;
+        background-color: colors.$SELECT;
+        border: 1px solid colors.$INPUT_BORDER;
         border-radius: 15px;
       }
 
@@ -39,7 +40,7 @@
         margin: 3px 0 0;
         overflow: hidden;
         font-size: 17px;
-        line-height: 18px;
+        line-height: 20px;
         color: colors.$POINT;
         text-align: left;
         text-overflow: ellipsis;
@@ -51,6 +52,12 @@
         font-weight: 300;
         color: colors.$SUB_TITLE;
       }
+    }
+  }
+
+  @include responsive.after(MD) {
+    .timelineList {
+      width: 500px;
     }
   }
 }

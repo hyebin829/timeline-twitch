@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 /* stylelint-disable selector-class-pattern */
 .highlights {
@@ -18,6 +19,10 @@
   background: white;
   border: 1px solid colors.$SUB_BACKGROUND;
   border-radius: 18px;
+
+  @include responsive.after(MD) {
+    width: 400px;
+  }
 }
 
 .react-calendar,
@@ -33,7 +38,7 @@
 
 .react-calendar button:enabled:hover {
   cursor: pointer;
-  background-color: colors.$SUB_BACKGROUND;
+  background-color: colors.$SELECT;
 }
 
 .react-calendar__navigation {
@@ -83,6 +88,12 @@
   border-radius: 20%;
 }
 
+.react-calendar__month-view__days__day {
+  @include responsive.after(MD) {
+    height: 50px;
+  }
+}
+
 .react-calendar__tile--active {
-  background: colors.$SUB_BACKGROUND;
+  background: colors.$SELECT;
 }

@@ -15,7 +15,9 @@ const GNB = () => {
         <li>
           <NavLink to='/' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
             <p>홈</p>
-            <FiHome size={23} />
+            <span>
+              <FiHome size={23} />
+            </span>
           </NavLink>
         </li>
         <li>
@@ -23,14 +25,18 @@ const GNB = () => {
             to={`/streaminfo/${streamerId}/${selectedDate}`}
             className={({ isActive }) => cx({ [styles.isActive]: isActive })}
           >
-            <p>목록</p>
-            <FiList size={23} />
+            <p>검색결과</p>
+            <span>
+              <FiList size={23} />
+            </span>
           </NavLink>
         </li>
         <li>
           <NavLink to='/favorites' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
             <p>즐겨찾기</p>
-            <FiStar size={23} />
+            <span>
+              <FiStar size={23} />
+            </span>
           </NavLink>
         </li>
       </ul>
