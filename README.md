@@ -3,10 +3,8 @@
 스트리밍 플랫폼 Twitch 스트리머들의 방송 기록을 조회할 수 있는 서비스입니다.
 
 배포 주소 http://ec2-3-39-122-180.ap-northeast-2.compute.amazonaws.com:3001/  
-(배포 서버 timezone 문제, 아이폰에서 달력 클릭시 흰 화면 뜨는 현상 해결중)
 
-현재 조회 가능한 ID : ~~hanryang1125~~ , ~~kss7749~~, saddummy , swab85 , ~~zilioner~~
-(배포한지 얼마 되지 않아 데이터가 많지 않습니다)
+현재조회 가능한 ID : hanryang1125 , kss7749, saddummy , swab85 , zilioner
 
 시작 화면에서 스트리머 아이디를 검색한 후, 결과 화면에서 날짜를 선택할 수 있습니다. 
 
