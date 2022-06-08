@@ -24,7 +24,7 @@ const FavoriteButton = () => {
 
   return (
     <div>
-      <button type='button' onClick={handleFavorite}>
+      <button type='button' onClick={handleFavorite} aria-label='favorite button'>
         {isFavorite ? <AiFillStar size={23} /> : <AiOutlineStar size={23} />}
       </button>
     </div>
