@@ -2,10 +2,14 @@ const axios = require("axios");
 const dayjs = require("dayjs");
 const dotenv = require("dotenv");
 const { Fourth } = require("../models");
+const timezone = require("dayjs/plugin/timezone");
+const utc = require("dayjs/plugin/utc");
 
 dotenv.config();
 
 const SaveData = async (streamerID) => {
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
   const clientId = process.env.CLIENT_ID;
   const clientSecret = process.env.CLIENT_SECRET;
 
@@ -36,7 +40,7 @@ const SaveData = async (streamerID) => {
         streamerId: streamInfoList.user_login,
         category: streamInfoList.game_name,
         title: streamInfoList.title,
-        startedAt: `${dayjs().format("YYYY-MM-DD")}`,
+        startedAt: `${dayjs().tz("Asia/Seoul").format("YYYY-MM-DD")}`,
       });
     }
   } catch (error) {
