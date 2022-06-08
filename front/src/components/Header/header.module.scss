@@ -20,6 +20,10 @@
     .logo {
       margin-bottom: 10px;
     }
+
+    a {
+      color: colors.$POINT;
+    }
   }
 
   @include responsive.after(MD) {
