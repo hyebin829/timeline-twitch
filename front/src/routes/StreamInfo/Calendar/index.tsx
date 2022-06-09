@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 
 import { getOnAirDay } from 'services/getStream'
 
-import { FiCalendar, FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { FiCalendar, FiChevronDown, FiChevronLeft, FiChevronRight, FiChevronUp } from 'react-icons/fi'
 import styles from './selectDate.module.scss'
 import './calendar.scss'
 import FavoriteButton from '../FavoriteButton'
@@ -48,7 +48,7 @@ const SelectDate = () => {
           </span>
           <span>{selectedDate}</span>
           <span className={styles.icon}>
-            <FiChevronDown size={18} />
+            {isCalendarVisible ? <FiChevronUp size={18} /> : <FiChevronDown size={18} />}
           </span>
         </button>
       </div>
