@@ -70,11 +70,12 @@
 
     li {
       a {
-        color: colors.$GRAY6;
+        font-weight: 300;
+        color: colors.$GRAYA;
 
         &.isActive {
           font-weight: 300;
-          color: colors.$BACKGROUND;
+          color: colors.$WHITE;
         }
       }
     }
