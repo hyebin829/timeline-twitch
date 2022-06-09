@@ -76,4 +76,9 @@
   .searchButton {
     color: colors.$INPUT_BORDER;
   }
+
+  .invalidValue {
+    font-weight: 300;
+    color: colors.$SUB_BACKGROUND;
+  }
 }
