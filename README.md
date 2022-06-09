@@ -23,9 +23,7 @@
 
 ### 검색 , 날짜 선택
 
-
-![search](https://user-images.githubusercontent.com/80376561/172032635-3a1bf8e8-c995-49a6-b166-3c7abc3b1d14.gif)
-
+![search](https://user-images.githubusercontent.com/80376561/172764618-51011328-1f5e-4474-8eff-5f88788d9519.gif)
 
 - 메인 화면에서 스트리머 아이디를 입력한 후 검색하면 검색한 스트리머의 당일 방송 타임라인이 조회됩니다.  
 - 타임라인에는 카테고리, 방송 제목, 시작 시간이 표시됩니다.  
@@ -34,10 +32,17 @@
 - 달력에서 날짜를 선택하여 해당 날의 방송 타임라인을 조회할 수 있습니다.   
 - 방송 데이터가 있는 날은 달력에 작은 동그라미로 표시되어 있습니다.   
 
+
 ### 즐겨찾기
 
-![favorite](https://user-images.githubusercontent.com/80376561/172032637-af237d79-6544-45f2-a4ce-778585192b58.gif)
+![addfavorite2](https://user-images.githubusercontent.com/80376561/172765252-4b004550-c5d7-4988-97bc-0f65a7d830de.gif)
 
 - 조회 결과에서 즐겨찾기 버튼을 클릭하여 즐겨찾기 목록에 추가하거나 해제할 수 있습니다. 
 - 즐겨찾기 한 스트리머의 아이디를 누르면 스트리머의 당일 방송 타임라인으로 이동합니다. 
 - 삭제 버튼을 눌러 목록에서 삭제할 수 있습니다.
+
+
+### 다크 모드 지원
+
+![darkmode](https://user-images.githubusercontent.com/80376561/172764645-1a9972c0-f303-4214-8df7-79556df2da24.gif)
+
