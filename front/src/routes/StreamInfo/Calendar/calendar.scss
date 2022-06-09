@@ -97,3 +97,33 @@
 .react-calendar__tile--active {
   background: colors.$SELECT;
 }
+
+:root[timeline-theme='dark'] {
+  .highlights {
+    background-color: colors.$DARK_CATEGORY;
+  }
+
+  .react-calendar {
+    font-weight: 300;
+    color: colors.$SUB_BACKGROUND;
+    background-color: colors.$DARK_CALENDARBGC;
+    border: 1px solid colors.$DARK_BORDER;
+  }
+
+  .react-calendar__navigation button {
+    color: colors.$SUB_BACKGROUND;
+  }
+
+  .react-calendar__tile {
+    font-weight: 300;
+    color: colors.$SUB_BACKGROUND;
+  }
+
+  .react-calendar__tile--active {
+    background-color: colors.$DARK_BORDER;
+  }
+
+  .react-calendar button:enabled:hover {
+    background-color: colors.$DARK_BORDER;
+  }
+}

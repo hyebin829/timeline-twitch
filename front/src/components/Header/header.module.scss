@@ -26,15 +26,36 @@
     }
   }
 
+  .themeIcon {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    transition: 0.5s;
+  }
+
   @include responsive.after(MD) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 300px;
+    width: 100%;
 
     h1 {
       padding-left: 50px;
       text-align: left;
     }
+  }
+}
+
+:root[timeline-theme='dark'] {
+  .logo {
+    color: colors.$SELECT;
+  }
+
+  a {
+    color: colors.$SELECT;
+  }
+
+  .themeIcon {
+    color: colors.$SELECT;
   }
 }
