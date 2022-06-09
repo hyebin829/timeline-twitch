@@ -41,3 +41,24 @@
     text-overflow: ellipsis;
   }
 }
+
+:root[timeline-theme='dark'] {
+  .titleWrapper {
+    .datePicker {
+      background-color: colors.$DARK_CALENDARBGC;
+      border: 1px solid colors.$DARK_BORDER;
+
+      span {
+        color: colors.$SUB_TITLE;
+      }
+    }
+
+    .streamerId {
+      color: colors.$SUB_BACKGROUND;
+    }
+
+    button {
+      color: colors.$BACKGROUND;
+    }
+  }
+}

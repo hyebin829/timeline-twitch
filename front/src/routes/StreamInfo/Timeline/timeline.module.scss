@@ -6,10 +6,12 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color: colors.$POINT;
 
   .noData {
     padding: 30px 20px 0;
     font-size: 18px;
+    line-height: 23px;
   }
 
   .timelineList {
@@ -58,6 +60,33 @@
   @include responsive.after(MD) {
     .timelineList {
       width: 500px;
+    }
+  }
+}
+
+:root[timeline-theme='dark'] {
+  .timelineWrapper {
+    .noData {
+      font-weight: 300;
+      color: colors.$BACKGROUND;
+    }
+
+    .timelineList {
+      border-bottom: 1px solid colors.$GRAY3;
+
+      .category {
+        background-color: colors.$DARK_CATEGORY;
+        border: 1px solid colors.$TASK_ITEM_TITLE;
+      }
+
+      .title {
+        font-weight: 300;
+        color: colors.$BACKGROUND;
+      }
+
+      .start {
+        color: colors.$GRAY6;
+      }
     }
   }
 }

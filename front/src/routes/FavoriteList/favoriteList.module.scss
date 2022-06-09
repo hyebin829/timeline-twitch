@@ -43,3 +43,25 @@
     padding: 0 120px;
   }
 }
+
+:root[timeline-theme='dark'] {
+  .favoriteListWrapper {
+    color: colors.$BACKGROUND;
+
+    .nothing {
+      font-weight: 300;
+      color: colors.$BACKGROUND;
+    }
+
+    .favorite {
+      a {
+        font-weight: 300;
+        color: colors.$BACKGROUND;
+      }
+
+      button {
+        color: colors.$BACKGROUND;
+      }
+    }
+  }
+}

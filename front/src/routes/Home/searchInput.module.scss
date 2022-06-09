@@ -23,16 +23,12 @@
       font-size: 20px;
       line-height: 55px;
       color: colors.$POINT;
-      border: 1.5px solid colors.$INPUT_BORDER;
+      border: 1px solid colors.$POINT;
       border-radius: 30px;
       caret-color: colors.$PLACEHOLDER;
 
       &::placeholder {
         color: colors.$PLACEHOLDER;
-      }
-
-      &:focus {
-        border: 1.5px solid colors.$FOCUS;
       }
 
       @include responsive.after(MD) {
@@ -60,5 +56,24 @@
   .invalidValue {
     margin: 5px 10px;
     color: colors.$POINT;
+  }
+}
+
+:root[timeline-theme='dark'] {
+  .searchInput {
+    color: colors.$BACKGROUND;
+    border: 1px solid colors.$SUB_TITLE;
+
+    &::placeholder {
+      color: colors.$GRAY6;
+    }
+  }
+
+  .formText {
+    color: colors.$SUB_BACKGROUND;
+  }
+
+  .searchButton {
+    color: colors.$INPUT_BORDER;
   }
 }
