@@ -15,6 +15,7 @@
   font-weight: 400;
   background-color: colors.$WHITE;
   transition: 0.3s;
+  transition-property: background-color;
 
   ul {
     display: flex;
@@ -36,6 +37,7 @@
       }
     }
   }
+
   @include responsive.after(MD) {
     position: fixed;
     top: 0;
@@ -66,7 +68,6 @@
 :root[timeline-theme='dark'] {
   .gnb {
     background-color: colors.$DARK_BACKGROUND;
-    transition: 0.3s;
 
     li {
       a {
