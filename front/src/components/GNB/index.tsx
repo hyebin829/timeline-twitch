@@ -20,15 +20,24 @@ const GNB = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to={`/streaminfo/${streamerId}/${selectedDate}`}
-            className={({ isActive }) => cx({ [styles.isActive]: isActive })}
-          >
-            <p>검색결과</p>
-            <span>
-              <FiList size={23} />
-            </span>
-          </NavLink>
+          {streamerId ? (
+            <NavLink
+              to={`/streaminfo/${streamerId}/${selectedDate}`}
+              className={({ isActive }) => cx({ [styles.isActive]: isActive })}
+            >
+              <p>검색결과</p>
+              <span>
+                <FiList size={23} />
+              </span>
+            </NavLink>
+          ) : (
+            <NavLink to='/streaminfo/requireid' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+              <p>검색결과</p>
+              <span>
+                <FiList size={23} />
+              </span>
+            </NavLink>
+          )}
         </li>
         <li>
           <NavLink to='/favorites' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
