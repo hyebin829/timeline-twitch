@@ -2,8 +2,6 @@
 
 스트리밍 플랫폼 Twitch 스트리머들의 방송 기록을 조회할 수 있는 서비스입니다.
 
-배포 주소 : http://ec2-15-165-213-55.ap-northeast-2.compute.amazonaws.com:3001/
-
 현재조회 가능한 ID : hanryang1125 , kss7749, saddummy , swab85 , zilioner
 
 시작 화면에서 스트리머 아이디를 검색한 후, 결과 화면에서 날짜를 선택할 수 있습니다. 
