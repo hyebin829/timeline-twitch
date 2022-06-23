@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://timeline-twitch.netlify.app/apiurl"
+  to = "http://ec2-43-200-124-60.ap-northeast-2.compute.amazonaws.com:3065/:splat"
+  status = 201
+  force = true
