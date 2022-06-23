@@ -1,46 +1,46 @@
-# Timeline-twitch
+# Getting Started with Create React App
 
-스트리밍 플랫폼 Twitch 스트리머들의 방송 기록을 조회할 수 있는 서비스입니다.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-현재조회 가능한 ID : hanryang1125 , kss7749, saddummy , swab85 , zilioner
+## Available Scripts
 
-시작 화면에서 스트리머 아이디를 검색한 후, 결과 화면에서 날짜를 선택할 수 있습니다. 
+In the project directory, you can run:
 
----
-- Frontend : typescript , react, recoil 
+### `yarn start`
 
-- Backend : javascript , express, sequelize, MySQL
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- formatting : eslint, stylelint, prettier
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- Production : docker , NginX
+### `yarn test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## 주요 기능
+### `yarn build`
 
-### 검색 , 날짜 선택
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![search](https://user-images.githubusercontent.com/80376561/172764618-51011328-1f5e-4474-8eff-5f88788d9519.gif)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- 메인 화면에서 스트리머 아이디를 입력한 후 검색하면 검색한 스트리머의 당일 방송 타임라인이 조회됩니다.  
-- 타임라인에는 카테고리, 방송 제목, 시작 시간이 표시됩니다.  
-- 방송 제목 또는 카테고리가 바뀌면 새로운 방송으로 간주되어 타임라인에 기록됩니다.   
-- 데이터를 1분 간격으로 받아와 시작 시간에는 약 1-2분의 오차가 있을 수 있습니다.   
-- 달력에서 날짜를 선택하여 해당 날의 방송 타임라인을 조회할 수 있습니다.   
-- 방송 데이터가 있는 날은 달력에 작은 동그라미로 표시되어 있습니다.   
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
-### 즐겨찾기
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-![addfavorite2](https://user-images.githubusercontent.com/80376561/172765252-4b004550-c5d7-4988-97bc-0f65a7d830de.gif)
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- 조회 결과에서 즐겨찾기 버튼을 클릭하여 즐겨찾기 목록에 추가하거나 해제할 수 있습니다. 
-- 즐겨찾기 한 스트리머의 아이디를 누르면 스트리머의 당일 방송 타임라인으로 이동합니다. 
-- 삭제 버튼을 눌러 목록에서 삭제할 수 있습니다.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### 다크 모드 지원
+## Learn More
 
-![darkmode](https://user-images.githubusercontent.com/80376561/172764645-1a9972c0-f303-4214-8df7-79556df2da24.gif)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
