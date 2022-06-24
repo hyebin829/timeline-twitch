@@ -26,14 +26,20 @@ const SaveData = async (streamerID) => {
       },
     })
     const streamInfo = await getStreamInfo
-    await (streamInfoList = streamInfo.data.data[0])
-  } catch (error) {
-    console.error(error)
-  }
-  try {
-    if (streamInfoList === undefined) {
-    } else {
-      await Fourth.create({
+    let streamInfoList = streamInfo.data.data[0]
+
+    const streaminfoData = await Fourth.findAll({
+      where: { streamerId: streamerID },
+      attributes: ['category', 'title'],
+      raw: true,
+    })
+
+    if ((await streamInfoList) === undefined) {
+    } else if (
+      (await streamInfoList.game_name) !== (await streaminfoData[streaminfoData.length - 1]?.category) ||
+      (await streamInfoList.title) !== (await streaminfoData[streaminfoData.length - 1]?.title)
+    ) {
+      Fourth.create({
         streamerId: streamInfoList.user_login,
         category: streamInfoList.game_name,
         title: streamInfoList.title,
@@ -42,13 +48,13 @@ const SaveData = async (streamerID) => {
     }
   } catch (error) {
     console.error(error)
-    console.log('데이터 없음')
   }
 }
 
-setInterval(SaveData, 60000, 'hanryang1125')
 setInterval(SaveData, 60000, 'zilioner')
-setInterval(SaveData, 60000, 'rooftopcat99')
+setInterval(SaveData, 60000, 'hanryang1125')
+setInterval(SaveData, 60000, 'yagubu')
 setInterval(SaveData, 60000, 'kss7749')
+setInterval(SaveData, 60000, 'rooftopcat')
 
 module.exports = SaveData
