@@ -5,9 +5,13 @@ const sequelize = require('sequelize')
 const { Op } = require('sequelize')
 const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
+const timezone = require('dayjs/plugin/timezone')
+const utc = require('dayjs/plugin/utc')
 
 router.get('/:id/:date', async (req, res) => {
   dayjs.extend(customParseFormat)
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
 
   try {
     const streaminfoData = await Fourth.findAll({
@@ -15,7 +19,10 @@ router.get('/:id/:date', async (req, res) => {
         [Op.and]: [
           {
             createdAt: {
-              [Op.between]: [dayjs(`${req.params.date}`).toDate(), dayjs(`${req.params.date}`).add(1, 'day').toDate()],
+              [Op.between]: [
+                dayjs(`${req.params.date}`).tz('Asia/Seoul').startOf('day').toDate(),
+                dayjs(`${req.params.date}`).tz('Asia/Seoul').startOf('day').add(1, 'day').toDate(),
+              ],
             },
           },
           { streamerId: req.params.id },
