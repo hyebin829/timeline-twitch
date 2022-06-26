@@ -30,14 +30,16 @@ const SaveData = async (streamerID) => {
 
     const streaminfoData = await Fourth.findAll({
       where: { streamerId: streamerID },
-      attributes: ['category', 'title'],
+      attributes: ['category', 'title', 'startedAt'],
       raw: true,
     })
 
     if ((await streamInfoList) === undefined) {
     } else if (
       (await streamInfoList.game_name) !== (await streaminfoData[streaminfoData.length - 1]?.category) ||
-      (await streamInfoList.title) !== (await streaminfoData[streaminfoData.length - 1]?.title)
+      (await streamInfoList.title) !== (await streaminfoData[streaminfoData.length - 1]?.title) ||
+      (await `${dayjs(streamInfoList.started_at).tz('Asia/Seoul').format('YYYY-MM-DD')}`) !==
+        (await `${streaminfoData[streaminfoData.length - 1]?.startedAt}`)
     ) {
       Fourth.create({
         streamerId: streamInfoList.user_login,
