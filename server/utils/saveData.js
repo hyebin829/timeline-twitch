@@ -38,7 +38,7 @@ const SaveData = async (streamerID) => {
     } else if (
       (await streamInfoList.game_name) !== (await streaminfoData[streaminfoData.length - 1]?.category) ||
       (await streamInfoList.title) !== (await streaminfoData[streaminfoData.length - 1]?.title) ||
-      (await `${dayjs(streamInfoList.started_at).tz('Asia/Seoul').format('YYYY-MM-DD')}`) !==
+      (await `${dayjs().tz('Asia/Seoul').format('YYYY-MM-DD')}`) !==
         (await `${streaminfoData[streaminfoData.length - 1]?.startedAt}`)
     ) {
       Fourth.create({
