@@ -2,6 +2,7 @@
 
 스트리밍 플랫폼 Twitch 스트리머들의 방송 기록을 조회할 수 있는 서비스입니다.   
 배포 링크 : https://timeline-twitch.netlify.app/
+(서버 중단 상태)
 
 현재조회 가능한 ID : hanryang1125 , kss7749,  swab85 , zilioner , LCK_Korea, 109ace , yagubu
 
